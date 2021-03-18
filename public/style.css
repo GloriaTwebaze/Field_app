@@ -1,7 +1,6 @@
-/* W3hubs.com - Download Free Responsive Website Layout Templates designed on HTML5 CSS3,Bootstrap,Tailwind CSS which are 100% Mobile friendly. w3Hubs all Layouts are responsive cross browser supported, best quality world class designs. */
 
 body {
-    background-image: url('https://w3hubs.com/Login-Form-In-Pug/bg.jpg');
+    background-color:rgb(176, 211, 176);
     padding: 0;
     margin: 0px;
     font-family: 'Lato', sans-serif;
@@ -19,7 +18,10 @@ body {
     width: 40%;
     padding: 30px;
   }
-  
+  .img{
+border-radius: 50px;
+height: 50%;
+  }
   .username input,
   .password input {
     width: 100%;
@@ -118,6 +120,7 @@ body {
   
     button {
       padding: 5px;
+      
     }
   }
   
