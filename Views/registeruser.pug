@@ -1,0 +1,59 @@
+extends layout 
+block content 
+    header.card-header
+        h4.card-title Create a Member
+    form(action='/newUser' method='post')
+        div.card
+            div.card-header
+                h5.card-title User Privacy
+                div.form-row
+                    div.col.form-group
+                        label UserName 
+                    div.col.form-group
+                        input.form-control(placeholder="First Name")
+                    div.col.form-group    
+                        input.form-control(placeholder="Last Name")
+
+                div.form-row
+                    div.col.form-group
+                        label Password  
+                    div.col.form-group
+                        input.form-control(type="password" placeholder="password")
+                    div.col.form-group    
+                        input.form-control(type="password" placeholder="verify password")       
+    
+                div.form-row
+                    div.col.form-group
+                        label Place of Residence 
+                        textarea.form-control(placeholder="Your address")
+
+        div.card
+            div.card-header
+                h5.card-title Role settings
+                div.form-row
+                    div.col.form-group
+                        label User Role  
+                        select.form-control(name="role")
+                            option(value="front office")  Front office manager
+                            option(value="driver") Driver  
+                            option(value="conductor") Conductor       
+
+        div.card
+            div.card-header                      
+                div.form-row
+                    div.col.form-group
+                        label Date of Birth
+                        input.form-control(type='date')
+                    div.col.form-group
+                        label Gender
+                        div 
+                        label.form-check.form-check-inline
+                            input.form-check-input(type="radio" name="gender" value="female")
+                            span.form-check-label Female 
+                        label.form-check.form-check-inline
+                            input.form-check-input(type="radio" name="gender" value="male")
+                            span.form-check-label Male
+                    
+
+
+        
