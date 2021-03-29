@@ -1,26 +1,44 @@
+//importing modules
 const express = require('express')
 const app = express()
+const reguserRoute = require('./routes/reguserRoute')
+const registeruser = require('./routes/registeruser')
+const user = require('./routes/user')
+require('dotenv').config();
+const mongoose = require('mongoose');
+require('./models/Employee');
 
+
+//connect to mongodb
+mongoose.connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+// on connection
+  mongoose.connection
+    .on('open', () => {
+      console.log('connected to database mongodb @27017');
+    })
+    .on('error', (err) => {
+      console.log('error in database connection:'+err);
+    });
+// middlewares
 app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'pug')
 app.set('views', './views')
-
+app.use(express.urlencoded({extended: true}))
 
 // routes
-// user login route
-app.get('/', (req, res) =>{
-    res.render('user')
-})
-
-app.post('/', (req, res) =>{
-    res.render('user')
-})
-
-app.get('/newUser', (req, res) =>{
-    res.render('registeruser')
-})
+app.use('/', reguserRoute)
+// app.use('/', registeruser)
+app.use('/',user)
 
 
 
 
+
+
+
+
+// creating server
 app.listen(2008, () => console.log('server started at 2008'))

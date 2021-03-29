@@ -1,8 +1,8 @@
 
 body {
-    background-color:rgb(176, 211, 176);
+    background-color:rgb(112, 211, 112);
     padding: 0;
-    margin: 0px;
+    margin: 0;
     font-family: 'Lato', sans-serif;
   }
   
@@ -15,10 +15,10 @@ body {
   
   form {
     background-color:rgb(63, 184, 63);
-    width: 40%;
+    width: 100%;
     padding: 30px;
   }
-  .img{
+  img{
 border-radius: 50px;
 height: 50%;
   }
@@ -112,7 +112,15 @@ height: 50%;
     padding-bottom: 15px;
     text-transform: capitalize;
   }
-  
+  fieldset{
+    border:2px solid white;
+    padding:5%;
+  }
+  legend{
+    padding:0 5px;
+    margin:0;
+    width:fit-content;
+  }
   @media(max-width:610px) {
     form {
       width: 60%;

@@ -2,34 +2,32 @@ extends layout
 block content 
     header.card-header
         h4.card-title Create a Member
-    form(action='/newUser' method='post')
-        div.card
-            div.card-header
-                h5.card-title User Privacy
-                div.form-row
-                    div.col.form-group
-                        label UserName 
-                    div.col.form-group
-                        input.form-control(placeholder="First Name")
-                    div.col.form-group    
-                        input.form-control(placeholder="Last Name")
+    form(action='/registerUser' method='post' enctype="multipart/form-data")
+        fieldset 
+            legend User Privacy
+            div.form-row
+                div.col.form-group
+                    label UserName 
+                div.col.form-group
+                    input.form-control(placeholder="First Name" name="firstname")
+                div.col.form-group    
+                    input.form-control(placeholder="Last Name" name="lastname")
 
-                div.form-row
-                    div.col.form-group
-                        label Password  
-                    div.col.form-group
-                        input.form-control(type="password" placeholder="password")
-                    div.col.form-group    
-                        input.form-control(type="password" placeholder="verify password")       
-    
-                div.form-row
-                    div.col.form-group
-                        label Place of Residence 
-                        textarea.form-control(placeholder="Your address")
+            div.form-row
+                div.col.form-group
+                    label Password  
+                div.col.form-group
+                    input.form-control(type="password" placeholder="password")
+                div.col.form-group    
+                    input.form-control(type="password" placeholder="verify password")       
 
-        div.card
-            div.card-header
-                h5.card-title Role settings
+            div.form-row
+                div.col.form-group
+                    label Place of Residence 
+                    textarea.form-control(placeholder="Your address" name="address")
+
+        fieldset 
+                legend Role settings
                 div.form-row
                     div.col.form-group
                         label User Role  
@@ -38,13 +36,13 @@ block content
                             option(value="front office")  Front office manager
                             option(value="driver") Driver  
                             option(value="conductor") Conductor       
-
-        div.card
-            div.card-header                      
+    
+        fieldset
+                legend Other info                      
                 div.form-row
                     div.col.form-group
                         label Date of Birth
-                        input.form-control(type='date')
+                        input.form-control(type='date' name="date")
                     div.col.form-group
                         label Gender
                         div 
@@ -55,9 +53,25 @@ block content
                             input.form-check-input(type="radio" name="gender" value="male")
                             span.form-check-label Male
 
+                    div.col.form-group
+                        label Past incidences
+                        div 
+                        label.form-check.form-check-inline
+                            input.form-check-input(type="checkbox" name="pastincidences" value="Accident")
+                            span.form-check-label Accident
+                        label.form-check.form-check-inline
+                            input.form-check-input(type="checkbox" name="pastincidences" value="Fuel theft")
+                            span.form-check-label Fuel theft
+                    div.form-row
+                        div.col.form-group
+                            label Upload Image
+                            input(type ='file', name='imageupload')
+
         div.form-row
             div.col.form-group
-                button.btn.btn-primary.btn-block Save                    
+                button.btn.btn-primary.btn-block Save  
+            div.col.form-group
+                button.btn.btn-danger.btn-block Cancel                    
                     
 
 
