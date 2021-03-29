@@ -11,15 +11,15 @@ const employeeSchema = new mongoose.Schema({
   },
   date: {
     type: String,
-    required: "please enter your date of birth ",
+    required: true,
   },
   gender: {
     type: String,
-    required: "please input your gender",
+    required: true,
   },
   role: {
     type: String,
-    required: "please input user's role",
+    required: true,
   },
   pastincidences: {
     type: String,

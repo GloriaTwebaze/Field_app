@@ -27,6 +27,7 @@ app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'pug')
 app.set('views', './views')
 app.use(express.urlencoded({extended: true}))
+app.use('/public/images', express.static(__dirname + '/public/images'));
 
 // routes
 app.use('/', reguserRoute)
