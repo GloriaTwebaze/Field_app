@@ -2,7 +2,7 @@ extends layout
 block content 
     header.card-header
         h4.card-title.dark Create a Member
-    form.form2(action='/registerUser' method='post' enctype="multipart/form-data")
+    form.form2(action='/registeruser' method='post' name="registermember" onsubmit = "return register()" enctype="multipart/form-data")
         fieldset 
             legend User Privacy
             div.form-row
@@ -10,39 +10,52 @@ block content
                     label UserName 
                 div.col.form-group
                     input.form-control(placeholder="First Name" name="firstname")
+                    small#fname.innerstyle
+
                 div.col.form-group    
-                    input.form-control(placeholder="Last Name" name="lastname")
+                    input.form-control(placeholder="Last Name" name="lastname")  
+                    small#lname.innerstyle
 
             div.form-row
                 div.col.form-group
-                    label Password  
-                div.col.form-group
-                    input.form-control(type="password" placeholder="password")
-                div.col.form-group    
-                    input.form-control(type="password" placeholder="verify password")       
+                    label NIN  
+                div.col-md-8.form-group
+                    input.form-control(placeholder="Your NIN" name="nin")
+                    small#nin_no.innerstyle
 
             div.form-row
                 div.col.form-group
                     label Place of Residence 
                     textarea.form-control(placeholder="Your address" name="address")
-
+                div.col.form-group
+                    label Phone Contact
+                    input.form-control(type="tel" name="phone_num" placeholder="Your Phone * [+256-000-000-000]")
+                    small#contact.innerstyle
+        
         fieldset 
                 legend Role settings
                 div.form-row
-                    div.col.form-group
+                    div.col-md-4.form-group
                         label User Role  
                         select.form-control(name="role")
                             option(value="select") Select 
-                            option(value="front office")  Front office manager
                             option(value="driver") Driver  
                             option(value="conductor") Conductor       
-    
+                        
+                    div.form-row
+                        div.col.form-group
+                            label Driving license No  
+                        
+                            input.form-control( placeholder="Enter license No" name="drivinglicenseNo")
+        
         fieldset
                 legend Other info                      
                 div.form-row
                     div.col.form-group
                         label Date of Birth
-                        input.form-control(type='date' name="date")
+                        input.form-control( name="date")
+                        small#dob.innerstyle
+                    //- User's gender
                     div.col.form-group
                         label Gender
                         div 
@@ -52,27 +65,37 @@ block content
                         label.form-check.form-check-inline
                             input.form-check-input(type="radio" name="gender" value="male")
                             span.form-check-label Male
-
+                    //- input field for past incidences
                     div.col.form-group
                         label Past incidences
                         div 
                         label.form-check.form-check-inline
-                            input.form-check-input(type="checkbox" name="pastincidences" value="Accident")
-                            span.form-check-label Accident
+                            input.form-check-input(type="checkbox" name="pastincidences" value="None")
+                            span.form-check-label None
                         label.form-check.form-check-inline
                             input.form-check-input(type="checkbox" name="pastincidences" value="Fuel theft")
                             span.form-check-label Fuel theft
+                        label.form-check.form-check-inline
+                            input.form-check-input(type="checkbox" name="pastincidences" value="Fights")
+                            span.form-check-label Fights
+                        label.form-check.form-check-inline
+                            input.form-check-input(type="checkbox" name="pastincidences" value="Accidentt")
+                            span.form-check-label Accident
+                    //- User image upload
                     div.form-row
                         div.col.form-group
                             label Upload Image
                             input(type ='file', name='imageupload')
+        //- Form submit section
+        hr 
+        footer.card-header
+            div.form-row
+                div.col.form-group
+                    button.btn.btn-primary.btn-block(name="submit" type="submit") Save  
+                div.col.form-group
+                    button.btn.btn-danger.btn-block Cancel  
 
-        div.form-row
-            div.col.form-group
-                button.btn.btn-primary.btn-block Save  
-            div.col.form-group
-                button.btn.btn-danger.btn-block Cancel                    
-                    
-
+            //- Invoke JavaScript to validate the form.
+            script(src="/JS/validate.js") 
 
         

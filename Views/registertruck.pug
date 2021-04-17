@@ -1,0 +1,45 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Register a truck
+    
+    div.form-row
+        div.col.form-group.col-md-6  
+            div.form-row
+                div.col-md-3
+    form.form4(action='/registertruck' method='post')
+        fieldset 
+            strong Truck information
+            hr  
+            div.form-row
+                div.col-md-3.form-group
+                    label Truck  
+                    select.form-control(name="truckname")
+                        option(value="select") Select type
+                        option(value="sewage") Sewage truck
+                        option(value="garbage") Garbage truck
+
+            div.form-row
+                div.col-md-3.form-group
+                        label Truck RegNo
+                div.col.form-group
+                        input.form-control( name="truckregno")
+            div.form-row
+                div.col-md-3.form-group
+                        label Truck Code
+                div.col.form-group
+                        input.form-control( name="truckcode")
+        hr 
+        footer.card-header
+            div.form-row
+                div.col.form-group 
+                    label.form-check.form-check-inline
+                    input.form-check-input(type="checkbox" name="truckcondition" value="None")
+                    span.form-check-label Mark as Active
+            
+                div.col.form-group
+                    button.btn.btn-primary.btn-block(name="submit" type="submit") Save  
+                div.col.form-group
+                    button.btn.btn-danger.btn-block Close 
+                   
+

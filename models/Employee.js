@@ -1,13 +1,23 @@
 const mongoose = require('mongoose');
 
+const passportLocalMongoose = require('passport-local-mongoose')
+
 const employeeSchema = new mongoose.Schema({
   firstname: {
     type: String,
-    required: "please input firstname",
+    required: true,
   },
   lastname: {
     type: String,
-    required: "please input lastname",
+    required: true,
+  },
+  nin: {
+    type: String,
+    required: true,
+  },
+  drivinglicenseNo: {
+    type: Number,
+    required: true,
   },
   date: {
     type: String,
@@ -24,7 +34,19 @@ const employeeSchema = new mongoose.Schema({
   pastincidences: {
     type: String,
     required: true,
+  },
+  imageupload: {
+    type: String,
+    required: true,
   }
 });
+
+
+
+
+// employee.plugin(passportLocalMongoose);
+// const employee = mongoose.model('userInfo', employee, 'userInfo');
+
+
 // exporting modules
 module.exports = mongoose.model('Employee', employeeSchema);

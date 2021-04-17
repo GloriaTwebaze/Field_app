@@ -1,0 +1,37 @@
+extends layout 
+block content 
+    header.card-header
+        h4.card-title.dark Create a Member
+    form.form2(action='/signup' method='post' name = 'registerhere' onsubmit = "return validate()")
+        fieldset 
+            legend User Credentials
+            //- username input field.
+            div.form-row
+                div.col.form-group
+                    label UserName 
+                div.col.form-group
+                    input.form-control(placeholder="First Name" name="firstname")
+                div.col.form-group    
+                    input.form-control(placeholder="Last Name" name="lastname")
+            //- Email input field.
+            div.form-row        
+                div.col.form-group 
+                    label Your Email   
+                div.col-md-8.form-group 
+                    input.form-control(type="email" placeholder="Your Email" name="email")
+                    small#emailfield.innerstyle
+                //-  Password input field.  
+            div.form-row
+                div.col.form-group
+                    label Password  
+                div.col.form-group
+                    input.form-control(type="password" placeholder="password" name="password")
+                div.col.form-group    
+                    input.form-control(type="password" placeholder="verify password")
+                    small#pwd.innerstyle
+
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block(name="submit" type="submit") Save  
+            div.col.form-group
+                button.btn.btn-danger.btn-block(href="/list") Cancel           

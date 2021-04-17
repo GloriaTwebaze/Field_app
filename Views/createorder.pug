@@ -1,0 +1,98 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Record an order
+    div.form-row
+        div.col.form-group.col-md-9  
+            div.form-row
+                div.col-md-3
+    form.form2(action='/createorder' method='post')
+        //- Client's info
+        div.form-row
+            div.col-md-6.form-group
+                label First Name 
+                input.form-control(placeholder="First Name" name="firstname")
+            
+            div.col-md-6.form-group    
+                label First Name
+                input.form-control(placeholder="Last Name" name="lastname")
+
+        div.form-row
+            div.col-md-6.form-group
+                label NIN 
+                input.form-control(type="text" placeholder="National Id Number" name = "nin")
+                
+            div.col-md-6.form-group
+                label Contact   
+                input.form-control(type="tel" name="phone_num" placeholder="Contact * [+256-000-000-000]")
+               
+        div.form-row
+            div.col-md-3.form-group
+                label  City  
+                select.form-control(name="city")
+                    option(value="default") (Select city)
+                    option(value="Kampala") Kampala
+                    option(value="Mbarara") Mbarara 
+                    option(value="Kasese") Kasese
+                    option(value="Mbale") Mbale
+                    option(value="Jinja") Jinja
+
+            
+            div.col-md-4.form-group
+                label Place of Residence 
+                textarea.form-control(placeholder="Client address" name="address")       
+                
+         
+                
+            div.col.form-group
+                label Type of request  
+                select.form-control(name="suscribe")
+                    option(value="default") (Discount plan) 
+                    option(value="subscription") Subscription  
+                    option(value="one time") One Time  
+                    
+                    
+            div.col.form-group
+                label Time of request
+                input.form-control(type='time' name="period")
+        div.form-row
+            div.col-md-4.form-group
+                label Date of request
+                input.form-control(type='date' name="day")                          
+            
+            
+            div.col.form-group
+                label Service Required
+                select.form-control(name="service")
+                            option(value="default") Select
+                            option(value="garbage") Garbage collection 
+                            option(value="sewage") Sewage collection
+                            option(value="both") Both
+                    
+                
+            div.col.form-group
+                label Trucks needed
+                select.form-control(name="trucks")
+                    option(value="default") 1
+                    option(value="two") 2
+                    option(value="two") 3
+                    option(value="two") 4
+        
+        div.form-row
+            div.col.form-group
+                label Remark
+                textarea.form-control(type='textarea' name="remark")
+        //- links
+        div.form-row
+            div.col.form-group
+                button.btn-success.float-left(href='/') Assign truck                      
+            div.col.form-group
+                button.btn-success.float-right(href="") payment details  
+
+    //- footer
+    footer.card-header
+        div.form-row 
+            div.col.form-group 
+                button.btn.btn-primary.btn-block(type="submit")(href="/ordelist") Save 
+            div.col.form-group        
+                button.btn.btn-danger.btn-block(type="submit")(href="") Close

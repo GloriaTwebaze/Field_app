@@ -2,40 +2,40 @@
 extends layout 
 block content 
     header.card-header
-        h4.card-title Driver/Conductor List
+        h4.card-title Trucks available
             div.card
                 div.card-header
-                    h5.card-title Employee info
+                    h5.card-title Choose a truck
     div.form-row
         div.col.form-group.col-md-12   
-            form.search(action='/list')
+            form.search(action='/trucklist')
                 div.form-row
                     div.col-md-8
-                        input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
+                        input.form-control(name='name' placeholder="Enter your search term(name) ...")
                     div.col-md-4
                         input.btn.btn-primary.btn-block(type="submit")            
     table.table.table-striped 
         thead.thead-dark
             tr
-                th Full Name 
-                th Date of Birth
-                th Gender
-                th Past incidences
-                th Role
+                th Truck Name
+                th Truck Reg No
+                th Truck Code
+                th Truck status
+                th 
                 th 
                 th
                 th
         tbody
-            if users.length
-            each user in users
+            if truck.length
+            each truck in trucks
                 tr
-                    td #{user.lastname +' '+ user.firstname}
-                    td #{user.date}
-                    td #{user.gender}
-                    td #{user.pastincidences}
-                    td #{user.role}
+                    td #{truck.name}
+                    td #{truck.RegNo}
+                    td #{truck.code}
+                    td #{truck.status}
                     td 
-                        a(href='/update/'+user._id) Update
+                    td 
+                        a(href='/edit/'+truck._id) Edit
                     td
                     td
                         form(method="post" action='/delete')

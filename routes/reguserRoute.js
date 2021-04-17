@@ -3,7 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose');
 const Employee = require('../models/Employee')
 const multer = require("multer")
-router.get("/registerUser", (req, res) => {
+router.get("/registeruser", (req, res) => {
 	res.render("registeruser")
 })
 
@@ -18,7 +18,7 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
-router.post('/registerUser', upload.single('imageupload'), async (req, res) => {
+router.post('/registeruser', upload.single('imageupload'), async (req, res) => {
     try {
         const employee = new Employee(req.body);
         employee.imageupload = req.file.path;
@@ -26,7 +26,7 @@ router.post('/registerUser', upload.single('imageupload'), async (req, res) => {
         res.redirect('/list')
     }catch(err){
         console.log(err);
-        res.send('Sorry! Something went wrong.');
+        res.send('Sorry! Please fill all the required fields!');
     }
  })
  // retriving employee info in Employee collection
@@ -65,6 +65,15 @@ router.post('/update', async (req, res) => {
 })
 
 // delete an entry
+router.post('/delete', async (req, res) => {
+    try {
+        await Employee.deleteOne({ _id: req.body.id })
+        res.redirect('back')
+    } catch (err) {
+        res.status(400).send("Unable to delete item in the database");
+    }
+})
+
 
 
 
